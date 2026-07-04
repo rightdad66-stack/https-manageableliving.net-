@@ -6,9 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitAdmissionsForm, admissionsFormSchema } from "@/app/actions/submitForm";
-
-type AdmissionsFormValues = z.infer<typeof admissionsFormSchema>;
+import { submitAdmissionsForm } from "@/app/actions/submitForm";
+import { admissionsFormSchema, AdmissionsFormValues } from "@/lib/schemas";
 
 export default function AdmissionsForm() {
   const [step, setStep] = useState(1);

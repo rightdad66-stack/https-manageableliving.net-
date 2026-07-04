@@ -5,9 +5,8 @@ import SlideUp from "./SlideUp";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitContactForm, contactFormSchema } from "@/app/actions/submitForm";
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+import { submitContactForm } from "@/app/actions/submitForm";
+import { contactFormSchema, ContactFormValues } from "@/lib/schemas";
 
 export default function ContactForm() {
   const [step, setStep] = useState(1);
