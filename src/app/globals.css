@@ -1,26 +1,218 @@
-@import "tailwindcss";
+/* =====================================================================
+   MANAGEABLE LIVING - GLOBAL CSS (Bootstrap 5 Overrides)
+   ===================================================================== */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Brand Colors injected into Bootstrap */
+  --bs-primary: #d2af78;       /* Gold */
+  --bs-primary-rgb: 210, 175, 120;
+  --bs-secondary: #5a5a5a;     /* Smoke */
+  --bs-secondary-rgb: 90, 90, 90;
+  --bs-dark: #050505;          /* Black */
+  --bs-dark-rgb: 5, 5, 5;
+  --bs-light: #fafaf8;         /* White */
+  --bs-light-rgb: 250, 250, 248;
+  
+  /* Manageable Services Specific Colors */
+  --black: #050505;
+  --deep: #0d0d0d;
+  --charcoal: #151515;
+  --mid: #242424;
+  --smoke: #5a5a5a;
+  --ash: #a8a8a8;
+  --mist: #e6e5df;
+  --cream: #fcfbf9;
+  --white: #fafaf8;
+  --gold: #d2af78;
+  --gold-light: #ebd3a2;
+  --gold-dim: #8a7143;
+  --blue: #1a5fb4;
+  --blue-light: #3584e4;
+  --blue-dim: #102a45;
+  
+  /* Fonts */
+  --bs-font-sans-serif: 'DM Sans', sans-serif;
+  --bs-body-font-family: 'DM Sans', sans-serif;
+  
+  --bs-body-bg: var(--black);
+  --bs-body-color: var(--cream);
+  --bs-border-color: rgba(255, 255, 255, 0.1);
+  --bs-border-color-translucent: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6,
+.navbar-brand, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: 'Canela', 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 300;
+}
+
+/* Custom Utility: Hover Effects */
+.hover-warning:hover {
+  color: var(--bs-primary) !important;
+  transition: color 0.3s ease;
+}
+
+/* Custom Animation: Pulse Core */
+@keyframes pulseCore {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 175, 120, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(210, 175, 120, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 175, 120, 0); }
+}
+
+.animate-pulse {
+  animation: pulseCore 2s infinite;
+}
+
+/* Forms: Custom Focus */
+.form-control:focus, .form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(210, 175, 120, 0.25);
+}
+
+/* Overrides for specific dark sections */
+.bg-charcoal {
+  background-color: var(--charcoal) !important;
+}
+
+/* Ensure next.js images work nicely in bootstrap grids */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Safety net: inline SVGs without explicit width/height stay contained */
+svg:not([width]):not([height]):not(.bi) {
+  width: 1em;
+  height: 1em;
+}
+
+/* =====================================================================
+   GLOBAL DARK THEME OVERRIDES
+   ===================================================================== */
+/* Override light background classes */
+.bg-light {
+  background-color: var(--black) !important;
+}
+.bg-white {
+  background-color: var(--charcoal) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Override dark text classes for readability on dark backgrounds */
+.text-dark {
+  color: var(--cream) !important;
+}
+.text-muted {
+  color: var(--ash) !important;
+}
+
+/* Card overrides */
+.card {
+  background-color: var(--charcoal) !important;
+  color: var(--cream) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Accordion overrides */
+.accordion-button {
+  background-color: var(--black) !important;
+  color: var(--cream) !important;
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--charcoal) !important;
+  color: var(--bs-primary) !important;
+  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 rgba(255, 255, 255, 0.05) !important;
+}
+.accordion-body {
+  background-color: var(--black) !important;
+  color: var(--cream) !important;
+}
+.accordion-item {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Button & Warning Color Overrides (Map to Gold) */
+.text-warning {
+  color: var(--bs-primary) !important;
+}
+.bg-warning {
+  background-color: var(--bs-primary) !important;
+}
+.btn-warning {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: var(--black) !important;
+  box-shadow: 0 4px 20px rgba(210, 175, 120, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+.btn-warning:hover {
+  background-color: var(--gold-light) !important;
+  border-color: var(--gold-light) !important;
+  color: var(--black) !important;
+  box-shadow: 0 6px 25px rgba(210, 175, 120, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* =====================================================================
+   MASONRY LAYOUT
+   ===================================================================== */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+@media (min-width: 992px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.masonry-img-wrapper img {
+  transition: transform 0.4s ease !important;
+}
+.masonry-img-wrapper:hover img {
+  transform: scale(1.03) !important;
+}
+
+/* =====================================================================
+   FORM CUSTOM STYLES (Floating Labels & Focus Rings)
+   ===================================================================== */
+.custom-focus-ring:focus {
+  border-color: #ffc107 !important; /* Warning color */
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25) !important;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  color: #ffc107 !important;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select {
+  background-color: #1a1d20; /* charcoal */
+  color: #fff;
+  border: 1px solid #6c757d;
+}
+
+/* Date picker icon inversion for dark mode */
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
