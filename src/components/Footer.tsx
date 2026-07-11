@@ -89,7 +89,7 @@ export default function Footer() {
                 <a href="https://www.facebook.com/profile.php?id=61590282224484" className="d-inline-flex align-items-center justify-content-center rounded-circle border border-warning text-warning hover-bg-warning" style={{ width: "45px", height: "45px", transition: "all 0.3s ease", textDecoration: "none" }} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                   <i className="bi bi-facebook fs-5"></i>
                 </a>
-                <a href="https://www.instagram.com/manageable.living/" className="d-inline-flex align-items-center justify-content-center rounded-circle border border-warning text-warning hover-bg-warning" style={{ width: "45px", height: "45px", transition: "all 0.3s ease", textDecoration: "none" }} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/livingmanageable/" className="d-inline-flex align-items-center justify-content-center rounded-circle border border-warning text-warning hover-bg-warning" style={{ width: "45px", height: "45px", transition: "all 0.3s ease", textDecoration: "none" }} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                   <i className="bi bi-instagram fs-5"></i>
                 </a>
                 <a href="#" className="d-inline-flex align-items-center justify-content-center rounded-circle border border-warning text-warning hover-bg-warning" style={{ width: "45px", height: "45px", transition: "all 0.3s ease", textDecoration: "none" }} aria-label="TikTok" target="_blank" rel="noopener noreferrer">
